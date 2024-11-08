@@ -16,7 +16,7 @@ FEMU-DIC is an open-source finite element model updating (FEMU) software. It inc
 
 ***
 ## Brief introduction of FEMU and DIC techniques
-We recommend you read our recent review on FEMU: **Finite Element Model Updating for Material Model Calibration: Review and Practice Guide (Accepted)**, if you are interested in this technique. 
+If you are interested in this technique, we recommend our recent review on FEMU: **Finite Element Model Updating for Material Model Calibration: Review and Practice Guide (Accepted)**. 
 
 ### FEMU
 FEMU is an optimized-based inverse method for calibrating material model parameters. The basic principle is to iteratively refine the material parameters by minimizing the displacement or strain field differences obtained from numerical simulation and digital image correlation. In principle, if we numerically simulate real experiments in FEM using the same sample geometry and boundary condition, the numerical simulation results should be close to the real experimental results if the material parameters in FEM are the same as those of the tested real material. 
