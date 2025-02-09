@@ -29,7 +29,7 @@ x = reshape(X(:,1),ROIsize);    y = reshape(X(:,2),ROIsize);
 u = reshape(Disp(:,1),ROIsize); v = reshape(Disp(:,2),ROIsize);
 
 GS_filter_x = 3/((strainWinSize(1))^2*(halfWsize(1)+1)*halfWsize(1)*Params.Step).*...
-    repmat([-halfWsize(1):halfWsize(1)]',1,strainWinSize(1));
+    repmat([-halfWsize(2):halfWsize(2)]',1,strainWinSize(1));
 
 GS_filter_y = GS_filter_x';
 % GS_filter_x = GS_filter_x(:);
@@ -56,8 +56,8 @@ coeffMat0        = (coeff0*coeff0')^-1*coeff0;
 for i = 1 : ROIsize(1)
     for j = 1 : ROIsize(2)
         if ~isnan(u(i,j))
-            xVec            = max(1,i-halfWsize) : min(ROIsize(1),i+halfWsize);
-            yVec            = max(1,j-halfWsize) : min(ROIsize(2),j+halfWsize);
+            xVec            = max(1,i-halfWsize(1)) : min(ROIsize(1),i+halfWsize(1));
+            yVec            = max(1,j-halfWsize(2)) : min(ROIsize(2),j+halfWsize(2));
 
             uWin            = u(xVec,yVec);
             vWin            = v(xVec,yVec);
