@@ -74,7 +74,7 @@ for i = 2:Params.frameRate: Params.fileNum
         Params.defFile0 = Params.fileDef;
         %         save('Params0.mat','Params0');
         dataFile   = fullfile(Params.Folder,[filename,'.mat']);
-        parsave(dataFile,comptPoints,Disp,Strain,ZNCC,iterNum,boolean(Is_indPtInROI));
+        parsave(dataFile,comptPoints,Disp,Strain,ZNCC,iterNum,logical(Is_indPtInROI));
     end
     plotOnImg(Params, ImDef,comptPoints, Disp,Strain, Params.param_Plot);
     fprintf('%s is matching...\n',Params.fileDef);
