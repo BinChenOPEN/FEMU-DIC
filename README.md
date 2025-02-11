@@ -120,7 +120,7 @@ The DIC software has the following major features:
 3. Before running, you need to set some **key parameters in `paramset.m`**, such as **subset size**, **step size**. The variable you want to plot is controlled by ``param_Plot``.
 4. You must pay attention on parameter **allRegion** in this script. It controls the ROI shape. It has a form of row vector with elements of 1 and/or 2. The number 1 and 2 denotes the selection of a rectangular region and a polygon region, respectively. 
    For instance, we set ``allRegion = [1,2,2]``. It means we first select a rectangular region. Then two polygon regions are removed from the selected rectangular ROI. Note that when you are selecting a rectangular region, you need hold the mouse and drag it.
-5. Run `DIC_MAIN.m`. In the first pop-up window select one reference image, and in the second pop-up window select a deformed image or a set of deformed images. The number of elements in this vector should be more than 1. 
+5. Run `DIC_MAIN.m`. In the pop-up window select the reference image and deformed images simultaneously 
 6. Set whether do you want to fill the boundary in `Param.fill_boundary`. If 1, fill the boundary, or 0 is not.
 7. Select the ROIs following **Step 4**. After specifying all ROIs, you need to specify a seed points. It is recommended to put it at the place with smaller displacement.
 8. Please wait for the software to run. The running information will display on the Command Window
