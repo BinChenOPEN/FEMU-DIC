@@ -136,6 +136,7 @@ The DIC software has the following major features:
    ```
 9. The results are saved in the same folder with the same file name but format of `.mat`;
 10. If you want to rerun DIC, you need to remove ``Params.mat`` and the result file ``*.mat`` in the image folder. If you want to rerun but keep the same parameters, then you need to remove the result file ``*.mat`` while keeping ``Params.mat``.
+11. You can plot your results using the file `post_plot_results.m`. In such a file, you have to specify the file path for the parameters ``Params.mat`` in ``Params_file``, the data file ``data_file``, the reference image ``ImRef_file`` and the deformed image file ``ImDef_file``. You also need to specify the variable you want to plot in `Params_plot`.
 
 ### 🗂️ Result files
 - The results (``Left of Figure 2``) include data file for each image. They are saved as the same name as the image name but with ``.mat`` as extension. The other data file is the ``.Params.mat``, where the parameters used in DIC are saved.
