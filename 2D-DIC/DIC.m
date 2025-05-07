@@ -13,15 +13,16 @@ if ~isfile (file_Params)
     Params               = paramset(Params);
     
     
-    ImRef                = double(imread(fullfile(Params.Folder,refFile)));
+    ImRef                = double(imread(fullfile(Params.Folder,refFile)))/(2^Params.Bit_Depth-1);
     if length(size(ImRef)) == 3
-        ImRef            = double(rgb2gray(uint8(ImRef)));
+        ImRef            = double(rgb2gray(ImRef));
     end
+
     h                    = fspecial('gaussian',5,1);
     ImRef                = imfilter(ImRef,h);
     
     Params.ImRef         = ImRef;
-    hs                   = imshow(repmat(uint8(Params.ImRef),1,1,3));
+    hs                   = imshow(repmat(Params.ImRef,1,1,3));
     
     Params.sizeX         = size(ImRef,1);
     Params.sizeY         = size(ImRef,2);
@@ -37,7 +38,7 @@ if ~isfile (file_Params)
     save(file_Params,'Params');
 else
     load(file_Params)
-    imshow(repmat(uint8(Params.ImRef),1,1,3));
+    imshow(repmat(Params.ImRef,1,1,3));
 end
 Params.frameRate = 1;
 if nargin>=2
@@ -57,9 +58,9 @@ for i = 2:Params.frameRate: Params.fileNum
     fileSave = fullfile(Params.Folder,[filename,'.mat']);
     % if the data files have been generated, skip the matching and load the
     % files
-    ImDef = double(imread(fullfile(Params.Folder,Params.fileDef)));
+    ImDef = double(imread(fullfile(Params.Folder,Params.fileDef)))/(2^Params.Bit_Depth-1);
     if length(size(ImDef)) == 3
-        ImDef              = double(rgb2gray(uint8(ImDef)));
+        ImDef              = double(rgb2gray(ImDef));
     end
     if isfile (fileSave)
         continue;

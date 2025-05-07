@@ -7,24 +7,24 @@ function [Disp,strain,ZNCC,iterNum,Params] = DIC_local(imgPath,defFile,ImRef,Par
 % Update: 2021-06-04
 
 subplot(1,2,2);
-title(defFile);
-ImDef                = double(imread(fullfile(imgPath,defFile)));
+title(defFile,'Interpreter','none');
+ImDef                = double(imread(fullfile(imgPath,defFile)))/(2^Params.Bit_Depth-1);
 if length(size(ImDef)) == 3
-    ImDef              = double(rgb2gray(uint8(ImDef)));
+    ImDef              = double(rgb2gray(ImDef));
 end
 h                    = fspecial('gaussian',5,1);
 ImDef                = imfilter(ImDef,h);
 ImDef                = BsplineFilter(ImDef);
 
-imshow(repmat(uint8(ImDef),1,1,3));
+imshow(repmat(ImDef,1,1,3));
 
 % Initialize the displacement for the seed point
 if Params.fixed_seedPts
     InitMatP         = Params.InitP(1:2,1);
 else
-    ImRef_TEMP       = double(imread(fullfile(Params.Folder,Params.defFile0)));
+    ImRef_TEMP       = double(imread(fullfile(Params.Folder,Params.defFile0)))/(2^Params.Bit_Depth-1);
     if length(size(ImRef_TEMP)) == 3
-        ImRef_TEMP              = double(rgb2gray(uint8(ImRef_TEMP)));
+        ImRef_TEMP              = double(rgb2gray(ImRef_TEMP));
     end
 
     h                = fspecial('gaussian',5,1);

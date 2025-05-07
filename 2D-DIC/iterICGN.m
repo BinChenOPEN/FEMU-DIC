@@ -30,9 +30,6 @@ fSubset       = fSubset(:);
 
 if Params.fill_boundary
     isPixelInSubsetInROI = Params.isPixelInSubsetInROI{pointsIndx};
-    if length(isPixelInSubsetInROI) < 961
-        a = 0;
-    end
     localSub    = localSub(isPixelInSubsetInROI,:);
     nablaf      = nablaf(isPixelInSubsetInROI,:);
     localSubHom = localSubHom(:,isPixelInSubsetInROI);

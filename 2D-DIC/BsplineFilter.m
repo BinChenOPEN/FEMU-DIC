@@ -9,15 +9,15 @@ function Img = BsplineFilter(Img)
 % Update: 2021/06/05
 
 [M,N] = size(Img);
-Img0  = double(uint8(Img));
+% Img  = double(Img);
 z1    = -2 + 3^0.5;
 
 % B-spline filter along y direction
 C1   = zeros(M,N);
 C2   = zeros(M,N);
-C1( :,1) = C1(:,1) + sum(Img0.*repmat(z1.^[0:N-1],M,1),2);
+C1( :,1) = C1(:,1) + sum(Img.*repmat(z1.^[0:N-1],M,1),2);
 for k = 2:N
-    C1(:,k) = Img0(:,k) + z1* C1(:,k-1);
+    C1(:,k) = Img(:,k) + z1* C1(:,k-1);
 end
 C2(:,N) = (z1/(1-z1^2))*(C1(:,N) + z1*C1(:,N-1));
 for l = N-1:-1:1
