@@ -46,6 +46,10 @@ The basic assumption is that speckle pattern will move with the material deforma
 
 
 ## 📔 Log
+**2025/05/08:**
+- Support more image formats
+- Plot the kinematic maps in a clearer way
+- Bug fixing
 
 **2024/09/22:**
 - Add boundary filling function to preserve more calculation points in DIC. 
