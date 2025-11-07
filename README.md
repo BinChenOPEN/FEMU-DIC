@@ -46,6 +46,9 @@ The basic assumption is that speckle pattern will move with the material deforma
 
 
 ## 📔 Log
+**2025/11/07:**
+- Improved strain calculation effeciency by about 4 times
+
 **2025/05/08:**
 - Support more image formats
 - Plot the kinematic maps in a clearer way
